@@ -131,3 +131,17 @@ Voir ensuite les deux dernières lignes du test et essayer de comprendre pourquo
 ## Ajouter une méthode equipeParGrade renvoyant une liste des techniciens de l'équipe triée par grade décroissant en utilisant les Streams et les lambdas
 
 ## Ajouter une méthode salaireEquipeGrade1 qui renvoie la somme des salaires des membres de l'équipe dont le grade est égal à 1 en une ligne avec des lambdas
+
+# Pour ceux qui voudrait s'évaluer sur le module 220, voici quelques questions que vous pouvez développer. Vous pouvez ensuite créer une nouvelle pull request à partir de votre repository 220 vers le mien et je la corrigerais. Voici les questions :
+
+## Ajouter au mapping de la classe Employe les attributs tempsPartiel de type Boolean et sexe de type String avec leurs getter et setters.
+
+## Modifier si besoin les méthodes toString, hashCode et equals
+
+## Ajouter un constructeur prenant en compte ces nouveaux attributs
+
+## Ajouter une entité Cadre héritant de Employe avec l'attribut suivant : coefficient de type Double avec une valeur par défaut à 1d.
+
+## Ajouter getters, setters, constructeurs, toString, equals et hashCode
+
+## Redéfinir getPrimeAnnuelle pour que la méthode renvoie la prime annuelle de base (dans la classe Entreprise) multipliée par le coefficient du cadre.
