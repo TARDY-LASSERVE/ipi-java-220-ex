@@ -10,7 +10,7 @@ import org.joda.time.LocalDate;
  * NB : Une méthode static (à éviter) ne peut utiliser que des attributs "static"
  * NB : final déclare des constantes
  */
-public class Employe {
+public abstract class Employe {
 
     private String nom; 
     private String prenom;
@@ -23,12 +23,12 @@ public class Employe {
     }
     
     public Employe(String nom, String prenom,String matricule, LocalDate dateEmbauche, Double salaire) {
-    	setNom(nom);
-    	setPrenom(prenom);
-    	setMatricule(matricule);
+    	this.nom = nom;
+    	this.prenom = prenom;
+    	this.matricule = matricule;
     	//setDateEmbauche(dateEmbauche); On ne garde pas cette commande dans le constructeur à cause de l'exception à gérer
     	this.dateEmbauche = dateEmbauche;
-    	setSalaire(salaire);
+    	this.salaire = salaire;
     }
     
     /**
@@ -43,10 +43,7 @@ public class Employe {
     /**
      * La méthode getNbConges retourne la constante de classe NB_CONGES_BASE de la classe Entreprise
      */
-    public final Integer getNbConges() {
-    	return Entreprise.NB_CONGES_BASE;
-    }
-    
+
 	/**
 	 * @return the nom
 	 */
@@ -82,9 +79,7 @@ public class Employe {
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) return true;
-		if (!(obj instanceof Employe)) return false;
-		
-		Employe other = (Employe) obj;
+		if (!(obj instanceof Employe)) return false;		
 		return hashCode() == obj.hashCode();
 	}
 
@@ -153,5 +148,28 @@ public class Employe {
 	 */
 	public void setSalaire(Double salaire) {
 		this.salaire = salaire;
+	}
+
+	/**
+	 * La méthode augmenterSalaire prend en paramètre un pourcentage d'augmentation de type Double 
+	 * et augmentant l'attribut salaire du pourcentage passé en paramètre.
+     * Ex : un salaire de 500.0, avec une augmentation de 0.50, cela donne un salaire de 750.0
+     * 
+	 * @param augmentation
+	 */
+	public void augmenterSalaire(Double augmentation) {
+		this.salaire += (this.salaire * augmentation);
+	}
+	
+	/**
+	 * La méthode abstraite getPrimeAnnuelle retourne le montant d'une prime (Double)
+	 */
+	public abstract Double getPrimeAnnuelle();
+	
+	/**
+	 * Retourne le nombre de congés de base
+	 */
+	public Integer getNbConges() {
+		return Entreprise.NB_CONGES_BASE;
 	}
 }

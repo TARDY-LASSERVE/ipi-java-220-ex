@@ -19,6 +19,6 @@ public class Entreprise {
      */
 	public static Double primeAnnuelleBase() {
     	Integer anneeEnCours = new LocalDate().getYear();
-    	return anneeEnCours / 2d;
+    	return (Double) (anneeEnCours / 2d);
     }
 }

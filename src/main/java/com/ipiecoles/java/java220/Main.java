@@ -1,14 +1,17 @@
 package com.ipiecoles.java.java220;
 
-import java.sql.Date;
 import org.joda.time.LocalDate;
 
 public class Main {
 	
-	public static void Main() {
-		LocalDate date = new LocalDate();
-		date = LocalDate.fromDateFields(Date.valueOf("01/01/2017"));
-		Employe employe = new Employe("Durand", "Pierre", "01234", date, 1234.5);
-		employe.toString();
+	public static void main (String[] args) {
+		Technicien technicien = new Technicien("Durand", "Pierre", "01234", LocalDate.now(), 1234.5, 3);		
+
+		Manager m = new Manager("Durand", "Simon", "56789", LocalDate.now(), 1234.5);
+		m.ajoutTechnicienEquipe(technicien);
+		for (Technicien t : m.getEquipe()) {
+			System.out.println(t.toString());
+		}
+		
 	}
 }
